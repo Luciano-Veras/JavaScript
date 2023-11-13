@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 14</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Crear un objeto libro que contenga las siguientes propiautores: ISBN, Título, Autor,
+            Número de páginas. Crear un método para cargar un libro pidiendo los datos al usuario
+            y luego informar mediante otro método el número de ISBN, el título, el autor del libro y el
+            numero de páginas.
+        </p>
+        <br>
+        <form id="form">
+            <p>Cargamos los datos del libro</p>
+            <label for="titulo">Titulo : <input type="text" id="titulo"></label>
+            <br>
+            <br>
+            <label for="autor">Autor: <input type="text" id="autor"></label>
+            <br>
+            <br>
+            <label for="IBSN">IBSN: <input type="number" id="IBSN"></label>
+            <br>
+            <br>
+            <label for="páginas">Numero de paginas: <input type="number" id="páginas"></label>
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const titulo = document.getElementById("titulo").value;
+            const autor = document.getElementById("autor").value;
+            const ibsn = document.getElementById("IBSN").value;
+            const paginas = document.getElementById("páginas").value;
+
+            class Libro {
+                Titulo;
+                Autor;
+                IBSN;
+                Paginas;
+            }
+            function cargarLibro(titulo, autor, ibsn, paginas) {
+                let box = new Libro();
+                box.Titulo = titulo;
+                box.Autor = autor;
+                box.IBSN = ibsn;
+                box.Paginas = paginas;
+                return box;
+            };
+
+            function mostrarLibro(e) {
+                datos = `Titulo: ${e.Titulo}<br>Autor: ${e.Autor}<br>INBS: ${e.IBSN}<br>Paginas: ${e.Paginas}`
+            }
+
+            let libro = cargarLibro(titulo, autor, ibsn, paginas);
+            mostrarLibro(libro);
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `${datos}`;
+        });
+    </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 18</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 18</h2>
+        <h4>Consigna: </h4>
+        <p>
+            A partir del siguiente array: var valores = [true, 5, false, "hola", "adios", 2]:
+            a) Determinar cual de los dos elementos de texto es mayor
+            b) Utilizando exclusivamente los dos valores booleanos del array, determinar los
+            operadores necesarios para obtener un resultado true y otro resultado false
+            c) Determinar el resultado de las cinco operaciones matemáticas realizadas con los
+            dos elementos numéricos
+        </p>
+        <br>
+        <form id="form">
+            <button type="submit">Empecemos..</button>
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var valores = [true, 5, false, "hola", "adios", 2]
+            let palabras = [];
+            for (let i = 0; i < valores.length; i++) {
+                if (valores[i].valueOf(String))
+                    palabras.push(valores[i]);
+            }
+            let palabraMasGrande = "";
+            for (let palabra of palabras) {
+                if (palabra.length > palabraMasGrande.length) {
+                    palabraMasGrande = palabra;
+                }
+            }
+
+            let bolean = [];
+            for (let i = 0; i < valores.length; i++) {
+                if (typeof valores[i] === 'boolean')
+                    bolean.push(valores[i]);
+            }
+            let [a, b] = bolean;
+
+            let number1 = parseInt(valores.slice(1, 2));
+            let numbre2 = parseInt(valores.find(elemento => elemento == 2));
+            let suma = number1 + numbre2;
+            let resta = number1 - numbre2;
+            let multiplicacion = number1 * numbre2;
+            let division = number1 / numbre2;
+
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `
+            La palabra mas grande es: ${palabraMasGrande}<br>
+            El primer Boolean es: ${a}, el segundo Boolean es: ${b}<br>
+            Suma: ${suma}<br>
+            Resta: ${resta}<br>
+            Multiplicacion: ${multiplicacion}<br>
+            Division: ${division}<br>
+            `;
+
+
+        });
+    </script>
+    </div>
+</body>
+
+</html>

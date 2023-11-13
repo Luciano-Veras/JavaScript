@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 11</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Escribir una función que reciba un String y devuelva la palabra más larga.
+            String Ejemplo: “Guia de JavaScript”
+            Resultado esperado : “JavaScript”
+        </p>
+        <form id="form">
+            <label for="frase">Ingrese una frase :<br>
+                <input type="text" id="frase" placeholder="Hola.." required></label><br>
+            <label for="">Oprima para ver su frase nueva </label>
+            <button type="submit" class="op">Lets Go</button>
+        </form>
+        <p>Respuesta: </p>
+        <p id="respuesta">...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const frase = document.getElementById("frase").value;
+
+            let palabras = frase.split(' ');
+            let frasefinal = "";
+
+            for (let palabra of palabras) {
+                if(palabra.length > frasefinal.length) {
+                    frasefinal = palabra;
+                }
+            }
+            
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `La palabra mas larga fue ${frasefinal}`;
+
+        });
+    </script>
+    </div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 15</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 15</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Escribe un programa JavaScript para calcular el área y el perímetro de un objeto Círculo
+            con la propiedad radio. Nota: Cree dos métodos para calcular el área y el perímetro. El
+            radio del círculo lo proporcionará el usuario.
+        </p>
+        <br>
+        <form id="form">
+            <p>Ingrese el radio del circulo</p>
+            <label for="Radio">Radio : <input type="number" id="Radio"></label>
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const radio = document.getElementById("Radio").value;
+            class Circulo {
+                Radio;
+            }
+            let aux = new Circulo();
+            aux.Radio = radio;
+            // area = PI * radio2
+            // perimetro = 2 * PI * radio
+            function area(number) {
+                let a = Math.PI * Math.pow(number, 2);
+                return a;
+            }
+            function perimetro(number) {
+                let p = 2 * Math.PI * number;
+                return p;
+            }
+            let areac = area(aux.Radio);
+            let perimetroc = perimetro(aux.Radio);
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `El area del circulo es: ${areac.toFixed(2)}<br>
+            El perimetro del circulo es: ${perimetroc.toFixed(2)}`;
+        });
+    </script>
+    </div>
+</body>
+
+</html>

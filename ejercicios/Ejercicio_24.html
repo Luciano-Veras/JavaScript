@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 24</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 24</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Escribir un programa de JavaScript que a través de un formulario calcule el radio de un
+            circulo y lo muestre en el HTML.
+        </p>
+        <br>
+        <form id="form">
+            <label for="radio">Ingrese radio de la circusferencia</label><br>
+            <input type="number" id="radio"><br>
+            <button type="submit">Calcular area y perimetro</button>
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+
+            class circulo {
+                radio;
+                area;
+                perimetro;
+
+                radio = document.getElementById("radio").value;
+
+                calcularArea() {
+                    this.area = Math.PI * Math.pow(this.radio, 2);
+                    
+                }
+
+                calcularPerimetro() {
+                    this.perimetro = 2 * Math.PI * this.radio;
+                    
+                }
+            }
+
+            let circulo1 = new circulo();
+            circulo1.calcularArea();
+            circulo1.calcularPerimetro();
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Para un circulo de ${circulo1.radio}:
+            <br>El area es: ${circulo1.area}
+            <br>El perimetro es: ${circulo1.perimetro}`;
+
+
+        });
+    </script>
+    </div>
+</body>
+
+</html>

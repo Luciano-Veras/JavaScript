@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 8</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Escribir un programa que lea números enteros hasta teclear 0 (cero). Al finalizar el
+            programa se debe mostrar el máximo número ingresado, el mínimo, y el promedio de
+            todos ellos.
+        </p>
+        <form id="form">
+            <p>Ingrese un numero positivo y luego 0</p>
+            <label for="">Oprima para comenzar</label>
+            <button type="submit" class="op">Comenzar¡</button>
+        </form>
+        <p>Respuesta: </p>
+        <p id="respuesta">...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let suma = 0;
+            let i = 0;
+            let maxnumber = Number.MIN_VALUE;
+            let minnumber = Number.MAX_VALUE;
+            while (true) {
+                let number = parseInt(prompt("Ingrese un numero"));
+                if (number === 0) {
+                    break;
+                };
+                i++;
+                suma += number;
+                if (number > maxnumber) {
+                    maxnumber = number;
+                };
+                if (number < minnumber) {
+                    minnumber = number;
+                };
+            };
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML =
+                `Numero Maximo ingresado ${maxnumber}<br>
+             Numero Minimo ingresado ${minnumber}<br>
+             Promedio de los numero ingresadi ${suma / i}`;
+        });
+    </script>
+    </div>
+
+</body>
+
+</html>

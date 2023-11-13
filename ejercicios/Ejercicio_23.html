@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 23</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 23</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Resalte todas las palabras de más de 8 caracteres en el texto del párrafo (con un fondo
+            amarillo, por ejemplo)
+        </p>
+        <p id="origin">
+            El año comenzó con una bendición. Tras cuatro años y medio en Europa, Juan Román Riquelme volvió en su
+            máxima plenitud. Fue un regalo de seis meses que sirvió para levantar otra Copa Libertadores.
+        </p>
+        <br>
+        <form id="form">
+            <button type="submit">ver mensaje resaltado..</button>
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const mensajeOriginal = document.getElementById("origin").textContent;
+
+            let newmensaje = mensajeOriginal.split(" ");
+
+            let mensajeFinal="";
+
+            for (let i = 0; i < newmensaje.length; i++) {
+                if (newmensaje[i].length > 8) {
+                    mensajeFinal += `<span class="mensajeamarillo">${newmensaje[i]}</span> `;
+                } else {
+                    mensajeFinal += newmensaje[i] + " ";
+                }
+                
+            }
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `${mensajeFinal}`;
+
+
+        });
+    </script>
+    </div>
+</body>
+
+</html>

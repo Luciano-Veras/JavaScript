@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 17</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Realizar un programa que elimine los dos últimos elementos de un array. Mostrar el
+            resultado
+        </p>
+        <br>
+        <form id="form">
+            <button type="submit">Empecemos..</button>
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let array = [1, 2, 3, 4];
+
+            let arrayoriginal="";
+
+            for (elementos of array) {
+                arrayoriginal += elementos +",";
+            }
+            array.splice(array.length - 1);
+            array.splice(array.length - 1);
+            let newarray = array;
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Array original: (${arrayoriginal})<br>Array nuevo: (${newarray}) `;
+        });
+    </script>
+    </div>
+</body>
+
+</html>

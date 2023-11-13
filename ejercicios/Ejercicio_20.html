@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 20</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Realizar un programa que obtenga la siguiente matriz [[3], [6], [9], [12], [15]] y devuelve y
+            muestre el siguiente array [6, 9, 12, 15, 18].
+        </p>
+        <br>
+        <form id="form">
+            <button type="submit">Empecemos..</button>
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let matriz = [[3], [6], [9], [12], [15]];
+            let array = matriz.flat();
+            let primerelemento = array.shift();
+            array.push(array[array.length - 1] + primerelemento);
+
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Matriz: ${matriz}<br>
+            Array: ${array}`;
+
+
+        });
+    </script>
+    </div>
+</body>
+
+</html>

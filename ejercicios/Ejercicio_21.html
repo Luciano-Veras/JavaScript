@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 21</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+
+<body class="bodyprincipal">
+    <div class="ej">
+        <h2>Ejercicio 21</h2>
+        <h4>Consigna: </h4>
+        <p>
+            Escribir un programa para obtener un array de las propiedades de un objeto Persona.
+            Las propiedades son nombre, edad, sexo ('H' hombre, 'M' mujer, 'O' otro), peso y altura.
+        </p>
+        <br>
+        <form id="form">
+            <label for="nombre">Nombre: <input type="text" id="nombre"></label>
+            <br>
+            <br>
+            <label for="edad">Edad: <input type="number" id="edad"></label>
+            <br>
+            <br>
+            <span>Sexo</span><br>
+            <label for="mujer">Mujer :</label>
+            <input type="radio" value="Mujer" id="mujer" name="sexo" class="sexo">
+            <br>
+            <label for="hombre">Hombre :</label>
+            <input type="radio" value="Hombre" id="hombre" name="sexo" class="sexo">
+            <br>
+            <label for="otro">Otro :</label>
+            <input type="radio" value="Otro" id="otro" name="sexo" class="sexo">
+            <br>
+            <br>
+            <label for="Peso">Peso: <input type="number" id="Peso"></label>
+            <br>
+            <br>
+            <label for="Altura">Altura: <input type="number" id="Altura"></label>
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+
+        <p>Respuesta: <br></p>
+        <p id="respuesta">Mostrandoo...</p>
+    </div>
+    <a class="volver" href="../index.html">Volver</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre").value;
+            const edad = document.getElementById("edad").value;
+            const op = document.getElementsByClassName("sexo");
+            let sexo;
+            for (let i = 0; i < op.length; i++) {
+                if (op[i].checked) {
+                    sexo = op[i].value;
+                    break;
+                };
+            };
+
+            const peso = document.getElementById("Peso").value;
+            const altura = document.getElementById("Altura").value;
+
+            class Persona {
+                Nombre;
+                Edad;
+                Sexo;
+                Peso;
+                Altura;
+            }
+
+            let Usuario = new Persona();
+            Usuario.Nombre = nombre;
+            Usuario.Edad = edad;
+            Usuario.Sexo = sexo;
+            Usuario.Peso = peso;
+            Usuario.Altura = altura;
+
+            let values = Object.values(Usuario);
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Array con los values del objeto: ${values}`;
+
+
+        });
+    </script>
+    </div>
+</body>
+
+</html>
